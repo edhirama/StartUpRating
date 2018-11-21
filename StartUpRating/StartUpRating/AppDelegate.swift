@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Apollo
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let apollo = ApolloClient(url: URL(string: "https://startups-project-mytvsxrgeb.now.sh")!)
+        apollo.fetch(query: GetAllStartupsQuery()) { (result, error) in
+            print(result?.data?.allStartups?.count)
+        }
         return true
     }
 

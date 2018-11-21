@@ -1,0 +1,15 @@
+query GetAllStartups {
+    allStartups {
+        name
+        teamCount
+        description
+        imageUrl
+        annualReceipt
+
+        Segment {
+            name
+            code
+        }
+    }
+}
+
