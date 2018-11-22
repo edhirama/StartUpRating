@@ -1,0 +1,17 @@
+query GetAllStartups {
+    allStartups {
+        ...StartupDetails
+    }
+}
+
+fragment StartupDetails on Startup {
+    name
+    description
+    imageUrl
+    Segment {
+        name
+        code
+    }
+}
+
+
