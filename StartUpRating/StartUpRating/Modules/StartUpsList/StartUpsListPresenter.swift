@@ -21,6 +21,7 @@ protocol StartupListCellView {
 }
 
 protocol StartUpListPresenter {
+    var router: StartUpsListRouter { get }
     var numberOfStartups: Int { get }
     func viewDidLoad()
     func configure(cell: StartupListCellView, forRow row: Int)
@@ -53,10 +54,8 @@ class StartUpListPresenterImplementation: StartUpListPresenter {
         if let startup = self.startups?[row] {
             cell.displayName(name: startup.name)
             cell.displaySegment(segment: startup.segment?.name ?? "")
-            self.load(url: URL(string: startup.imageUrl)!) { (image) in
-                
+            ImageUtils.load(url: URL(string: startup.imageUrl)!) { (image) in
                     cell.displayImage(image: image)
-                
             }
         } else {
             
@@ -64,29 +63,21 @@ class StartUpListPresenterImplementation: StartUpListPresenter {
         
     }
     
-    func load(url: URL, completion: @escaping (_ image: UIImage) -> Void)  {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        completion(image)
-                    }
-                }
-            }
-        }
-    }
     
     func didSelect(row: Int) {
-        
+        if let startup = startups?[row] {
+            self.router.presentDetailsView(forStartup: startup)
+        }
     }
     
     
     var startups : [StartupDetails?]?
     weak private var startupView: StartUpListView?
+    internal let router: StartUpsListRouter
     
-    init(view: StartUpListView) {
+    init(view: StartUpListView, router: StartUpsListRouter) {
         self.view = view
-       
+        self.router = router
     }
     
     func setView() {

@@ -36,7 +36,7 @@ class StartUpsListViewController: UIViewController, StartUpListView {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        self.presenter.
+        self.presenter.router.prepare(for: segue, sender: sender)
     }
     
     //MARK:- StartUpListView

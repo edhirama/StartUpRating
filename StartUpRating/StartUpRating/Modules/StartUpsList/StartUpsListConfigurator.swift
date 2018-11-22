@@ -15,7 +15,8 @@ protocol StartUpsListConfigurator {
 class StartUpsListConfiguratorImplementation: StartUpsListConfigurator {
     
     func configure(startUpsListViewController: StartUpsListViewController) {
-        let presenter = StartUpListPresenterImplementation(view: startUpsListViewController)
+        let router = StartUpsListRouterImplementation(startUpsListViewController: startUpsListViewController)
+        let presenter = StartUpListPresenterImplementation(view: startUpsListViewController, router: router)
         startUpsListViewController.presenter = presenter
     }
     
