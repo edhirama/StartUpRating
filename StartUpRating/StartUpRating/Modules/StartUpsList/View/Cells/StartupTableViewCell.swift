@@ -59,6 +59,7 @@ class StartupTableViewCell: UITableViewCell, StartupListCellView, Reusable, NibL
     }
     
     func displayImage(image: UIImage) {
+        logoImageView.backgroundColor = nil
         logoImageView.image = image
     }
     

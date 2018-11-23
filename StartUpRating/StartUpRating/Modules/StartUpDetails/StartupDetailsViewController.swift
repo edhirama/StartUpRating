@@ -23,6 +23,12 @@ class StartupDetailsViewController: UIViewController, StartupDetailsView {
 
         configurator.configure(startupDetailsViewController: self)
         presenter.viewDidLoad()
+        self.setupSubviews()
+    }
+    
+    func setupSubviews() {
+        self.logoImageView.layer.cornerRadius = 4.0
+        self.logoImageView.layer.masksToBounds = true
     }
     
     //MARK: StartupDetailsView
@@ -39,6 +45,7 @@ class StartupDetailsViewController: UIViewController, StartupDetailsView {
     }
     
     func loadImage(image: UIImage) {
+        logoImageView.backgroundColor = nil
         self.logoImageView.image = image
     }
     

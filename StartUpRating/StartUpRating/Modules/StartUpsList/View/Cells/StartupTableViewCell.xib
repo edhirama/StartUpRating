@@ -24,7 +24,7 @@
                         <subviews>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-fr-f98">
                                 <rect key="frame" x="58" y="16" width="117" height="118"/>
-                                <color key="backgroundColor" red="1" green="0.2565646701" blue="0.10847981769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="118" id="DyM-tr-YId"/>
                                     <constraint firstAttribute="width" secondItem="jHe-fr-f98" secondAttribute="height" multiplier="108:109" id="mZE-zW-MAN"/>
