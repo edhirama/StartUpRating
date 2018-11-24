@@ -8,6 +8,7 @@
 
 import UIKit
 import Apollo
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let apollo = ApolloClient(url: URL(string: URLConstants.apollo)!)
-        apollo.fetch(query: GetAllStartupsQuery()) { (result, error) in
-            print(result?.data?.allStartups?.count)
-        }
+        FirebaseApp.configure()
+        
+        
         return true
     }
 

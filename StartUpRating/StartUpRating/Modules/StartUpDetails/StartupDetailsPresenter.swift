@@ -33,6 +33,9 @@ class StartupDetailsPresenterImplementation : StartupDetailsPresenter {
     
     func viewDidLoad() {
         setupView()
+        RatingManager.getTopPitchRatings { (ratings) in
+            print(ratings)
+        }
     }
     
     func setupView() {
