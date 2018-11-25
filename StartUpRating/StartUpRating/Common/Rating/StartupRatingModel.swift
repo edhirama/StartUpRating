@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct RatingModel {
+struct StartupRatingModel {
     var name: String
     var rating: Double
     var id: String
 }
 
-extension RatingModel {
+extension StartupRatingModel {
     init?(dictionary: [String : Any], id: String) {
         guard  let name = dictionary["name"] as? String,
             let rating = dictionary["rating"] as? Double

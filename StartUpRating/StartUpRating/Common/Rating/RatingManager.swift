@@ -9,49 +9,27 @@
 import Foundation
 import FirebaseFirestore
 
-struct StartupRating {
-    var name: String
-    var averageRating: Double
-    
-    var dictionary: [String: Any] {
-        return ["name": name,
-                "averageRating": averageRating
-        ]
-    }
-}
-
-extension StartupRating {
-    init?(dictionary: [String: Any], id: String) {
-        guard let name = dictionary["name"] as? String,
-            let averageRating = dictionary["averageRating"] as? Double else { return nil }
-        
-        self.init(name: name, averageRating: averageRating)
-    }
-}
-
 class RatingManager {
     
-    
-    static func getTopPitchRatings(completion: @escaping (_ ratings: [RatingModel]) -> ()) {
+    static func getCriterias(completion: @escaping (_ criterias: [Criteria]) -> ()) {
         
-        let query = Firestore.firestore().collection("pitchRatings").limit(to: 3).order(by: "rating", descending: true)
+        let query = Firestore.firestore().collection(FirestorePaths.root)
         query.addSnapshotListener({ (snapshot, error) in
             guard let snapshot = snapshot else {
                 print("error")
                 return
             }
             
-            let topRatings = snapshot.documents.map({ (document) -> RatingModel in
-                if let rating = RatingModel(dictionary: document.data(), id: document.documentID) {
-                    return rating
+            let criterias = snapshot.documents.map({ (document) -> Criteria in
+                if let criteria = Criteria(dictionary: document.data(), id: document.documentID) {
+                    return criteria
                 } else {
                     fatalError("Unable to initialize RatingModel")
                 }
             })
-            completion(topRatings)
+            completion(criterias)
             
         })
     }
-    
     
 }
