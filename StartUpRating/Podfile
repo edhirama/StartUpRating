@@ -9,6 +9,7 @@ target 'StartUpRating' do
   pod 'Apollo', '~> 0.9.0'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Cosmos', '~> 17.0'
 
   target 'StartUpRatingTests' do
     inherit! :search_paths

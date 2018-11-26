@@ -27,7 +27,7 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V2d-tg-bub">
                         <rect key="frame" x="39" y="31" width="53.5" height="54.5"/>
-                        <color key="backgroundColor" red="1" green="0.2565646701" blue="0.10847981769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="V2d-tg-bub" secondAttribute="height" multiplier="63:64" id="dgK-4W-MSJ"/>
                         </constraints>
@@ -50,12 +50,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s23-SF-apq">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s23-SF-apq" customClass="CosmosView" customModule="Cosmos">
                         <rect key="frame" x="108.5" y="65" width="108" height="20.5"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="s23-SF-apq" secondAttribute="height" multiplier="37:7" id="Hkp-yC-2oZ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 / 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-hV-vIr">
                         <rect key="frame" x="249" y="65" width="35" height="20.5"/>
@@ -88,6 +102,7 @@
             <connections>
                 <outlet property="rankLabel" destination="4ju-ro-RLN" id="qed-GG-7FR"/>
                 <outlet property="ratingLabel" destination="3zk-hV-vIr" id="JKs-68-3lM"/>
+                <outlet property="ratingView" destination="s23-SF-apq" id="nFl-Id-YGw"/>
                 <outlet property="segmentLabel" destination="BMF-Zx-s4z" id="50a-pI-ETj"/>
                 <outlet property="startupImageView" destination="V2d-tg-bub" id="uoY-7s-7Pc"/>
                 <outlet property="startupNameLabel" destination="dNo-IC-xwm" id="kqE-cJ-DlP"/>

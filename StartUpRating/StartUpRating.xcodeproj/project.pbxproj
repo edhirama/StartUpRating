@@ -45,7 +45,7 @@
 		6EF9278C21A8FF6B006211CB /* RankingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9278B21A8FF6B006211CB /* RankingConfigurator.swift */; };
 		6EF9278E21AA3D03006211CB /* RankingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9278D21AA3D03006211CB /* RankingRouter.swift */; };
 		6EF9279021AA5C0B006211CB /* FirestorePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9278F21AA5C0B006211CB /* FirestorePaths.swift */; };
-		6EF9279221AACDA8006211CB /* Criteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9279121AACDA8006211CB /* Criteria.swift */; };
+		6EF9279221AACDA8006211CB /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9279121AACDA8006211CB /* Ranking.swift */; };
 		6EF9279521AAD752006211CB /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9279321AAD752006211CB /* RankingTableViewCell.swift */; };
 		6EF9279621AAD752006211CB /* RankingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EF9279421AAD752006211CB /* RankingTableViewCell.xib */; };
 		6EF9279921AAD805006211CB /* RankingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF9279821AAD805006211CB /* RankingHeaderView.swift */; };
@@ -115,7 +115,7 @@
 		6EF9278B21A8FF6B006211CB /* RankingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingConfigurator.swift; sourceTree = "<group>"; };
 		6EF9278D21AA3D03006211CB /* RankingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingRouter.swift; sourceTree = "<group>"; };
 		6EF9278F21AA5C0B006211CB /* FirestorePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestorePaths.swift; sourceTree = "<group>"; };
-		6EF9279121AACDA8006211CB /* Criteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Criteria.swift; sourceTree = "<group>"; };
+		6EF9279121AACDA8006211CB /* Ranking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		6EF9279321AAD752006211CB /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
 		6EF9279421AAD752006211CB /* RankingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingTableViewCell.xib; sourceTree = "<group>"; };
 		6EF9279821AAD805006211CB /* RankingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderView.swift; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		6EF9278221A79E6D006211CB /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				6EF9279121AACDA8006211CB /* Criteria.swift */,
+				6EF9279121AACDA8006211CB /* Ranking.swift */,
 				6EF9278321A79EA5006211CB /* RatingManager.swift */,
 				6EF9278521A8A625006211CB /* StartupRatingModel.swift */,
 			);
@@ -546,6 +546,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-StartUpRating/Pods-StartUpRating-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -562,6 +563,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -687,7 +689,7 @@
 				6EBC913921A65B3D00B9853D /* StartupTableViewCell.swift in Sources */,
 				6EF9279021AA5C0B006211CB /* FirestorePaths.swift in Sources */,
 				6EBC914B21A73F7400B9853D /* StartupDetailsPresenter.swift in Sources */,
-				6EF9279221AACDA8006211CB /* Criteria.swift in Sources */,
+				6EF9279221AACDA8006211CB /* Ranking.swift in Sources */,
 				6EBC912A21A5F4F100B9853D /* StartUpsListViewController.swift in Sources */,
 				6EBC914721A701DB00B9853D /* UIView+custom.swift in Sources */,
 				6EBC913521A641BE00B9853D /* URLConstants.swift in Sources */,

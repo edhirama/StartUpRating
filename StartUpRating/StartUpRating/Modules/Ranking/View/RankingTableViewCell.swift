@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Cosmos
 
 class RankingTableViewCell: UITableViewCell, Reusable, NibLoadableView, RankingCellView {
-   
+    
 
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var startupImageView: UIImageView!
@@ -17,6 +18,7 @@ class RankingTableViewCell: UITableViewCell, Reusable, NibLoadableView, RankingC
     @IBOutlet weak var segmentLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    @IBOutlet weak var ratingView: CosmosView!
     //MARK:- RankingCellView
     
     func displayRank(rank: String) {
@@ -32,11 +34,15 @@ class RankingTableViewCell: UITableViewCell, Reusable, NibLoadableView, RankingC
     }
     
     func displayRatingValue(value: Double) {
-        //TODO
+        ratingView.rating = value
     }
     
     func displayStartupImage(image: UIImage) {
-        //TODO
+        self.startupImageView.image = image
+        self.startupImageView.backgroundColor = .white
     }
     
+    func displaySegment(segmentName: String) {
+        self.segmentLabel.text = segmentName
+    }
 }

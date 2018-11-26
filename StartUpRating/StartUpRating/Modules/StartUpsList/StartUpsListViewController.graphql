@@ -5,7 +5,6 @@ query GetAllStartups {
 }
 
 fragment StartupDetails on Startup {
-    id
     name
     description
     imageUrl

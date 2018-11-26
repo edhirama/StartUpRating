@@ -18,10 +18,14 @@ protocol StartupDetailsView : class {
 
 protocol StartupDetailsPresenter {
     func viewDidLoad()
+    func didRateProposal(rating: Double)
+    func didRatePitch(rating: Double)
+    func didRateDevelopment(rating: Double)
     
 }
 
 class StartupDetailsPresenterImplementation : StartupDetailsPresenter {
+
     
     fileprivate weak var view: StartupDetailsView?
     fileprivate let startup: StartupDetails
@@ -48,5 +52,18 @@ class StartupDetailsPresenterImplementation : StartupDetailsPresenter {
             self.view?.loadImage(image: image)
         }
     }
+    
+    func didRateProposal(rating: Double) {
+        RatingManager.addRating(startup: startup, ratingType: .proposalRating, rating: rating)
+    }
+    
+    func didRatePitch(rating: Double) {
+        RatingManager.addRating(startup: startup, ratingType: .pitchRating, rating: rating)
+    }
+    
+    func didRateDevelopment(rating: Double) {
+        RatingManager.addRating(startup: startup, ratingType: .developmentRating, rating: rating)
+    }
+    
     
 }

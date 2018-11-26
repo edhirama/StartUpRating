@@ -18,6 +18,7 @@ protocol RankingView : class {
 protocol RankingCellView {
     func displayRank(rank: String)
     func displayStartupName(name: String)
+    func displaySegment(segmentName: String)
     func displayRatingString(rating: String)
     func displayRatingValue(value: Double)
     func displayStartupImage(image: UIImage)
@@ -38,11 +39,10 @@ protocol RankingPresenter {
     func didSelect(row: Int)
 }
 
-
 class RankingPresenterImplementation: RankingPresenter {
     
     var router: RankingRouter
-    
+    var rankings : [Ranking] = [Ranking]()
     fileprivate weak var view: RankingView?
     
     var numberOfCriteriaRatingsLoaded: Int = 0 {
@@ -54,57 +54,77 @@ class RankingPresenterImplementation: RankingPresenter {
     }
     
     var numberOfCriterias: Int {
-        return criterias?.count ?? 0
+        return RatingManager.criterias.count
     }
-    var criterias : [Criteria?]?
+
     
-    func numberOfCriteriaRatings(criteriaIndex: Int) -> Int {
-        return criterias?[criteriaIndex]?.ratings?.count ?? 0
+    func numberOfCriteriaRatings(criteriaIndex rankingIndex: Int) -> Int {
+        if rankingIndex < rankings.count {
+            return rankings[rankingIndex].startups?.count ?? 0
+        } else {
+            return 0
+        }
     }
     
     func viewDidLoad() {
-        RatingManager.getCriterias { [weak self] (criterias) in
-            self?.criterias = criterias
-            self?.loadCriteriaRatings()
-        }
+        self.loadCriteriaRatings()
     }
     
     func loadCriteriaRatings() {
-        RatingManager.getTopPitchRatings { [weak self] (ratings) in
-            self?.criterias?[0]?.ratings = ratings
+        RatingManager.getTopPitchRatings { [weak self] (startups) in
+            self?.rankings.append(Ranking(type: .pitchRating, startups: startups))
             self?.numberOfCriteriaRatingsLoaded += 1
         }
         
-        RatingManager.getTopProposalRatings { [weak self] (ratings) in
-            self?.criterias?[1]?.ratings = ratings
+        RatingManager.getTopProposalRatings { [weak self] (startups) in
+            self?.rankings.append(Ranking(type: .proposalRating, startups: startups))
             self?.numberOfCriteriaRatingsLoaded += 1
         }
         
-        RatingManager.getTopDevelopmentRatings { [weak self] (ratings) in
-            self?.criterias?[2]?.ratings = ratings
+        RatingManager.getTopDevelopmentRatings { [weak self] (startups) in
+            self?.rankings.append(Ranking(type: .developmentRating, startups: startups))
             self?.numberOfCriteriaRatingsLoaded += 1
         }
     }
     
     func configure(cell: RankingCellView, section: Int, forRow row: Int) {
-        if let criteria = self.criterias?[section], criteria.ratings != nil, criteria.ratings!.count > 0 {
-            if let rating = criteria.ratings?[row] {
-                
-                cell.displayRank(rank: "\(row+1)º")
-                cell.displayStartupName(name: rating.name)
-//                cell.displa
-//                ImageUtils.load(url: URL(string: startup.imageUrl)!) { (image) in
-//                    cell.displayImage(image: image)
-//                }
-            }
-        } else {
+        if section < self.rankings.count {
+            let criteria = self.rankings[section]
+            if  criteria.startups != nil, criteria.startups!.count > 0 {
+                if let startup = criteria.startups?[row] {
+                    let rating = startup.getRating(type: criteria.type)
+                    cell.displayRank(rank: "\(row+1)º")
+                    cell.displayStartupName(name: startup.name)
+                    cell.displaySegment(segmentName: startup.segment)
+                    cell.displayRatingValue(value: rating)
+                    cell.displayRatingString(rating: "\(rating) / 5")
+                    ImageUtils.load(url: URL(string: startup.imageURL)!) { (image) in
+                        cell.displayStartupImage(image: image)
+                    }
+                }
+            } else {
 
+            }
         }
         
     }
     
     func configure(header: CriteriaHeaderView, forSection section: Int) {
-        header.displayCriteria(criteriaName: criterias?[section]?.name ?? "")
+        if section < rankings.count {
+            let criteriaName: String
+            switch (rankings[section].type) {
+            case .proposalRating:
+                criteriaName = "Proposta"
+                break
+            case .pitchRating:
+                criteriaName = "Apresentação/Pitch"
+                break
+            case .developmentRating:
+                criteriaName = "Desenvolvimento"
+                break
+            }
+            header.displayCriteria(criteriaName: criteriaName)
+        }
     }
     
     
