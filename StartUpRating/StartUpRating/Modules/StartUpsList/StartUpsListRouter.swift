@@ -1,6 +1,6 @@
 //
-//  StartUpsListRouter.swift
-//  StartUpRating
+//  StartupsListRouter.swift
+//  StartupRating
 //
 //  Created by Edgar Hirama on 22/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -9,23 +9,23 @@
 import Foundation
 import UIKit
 
-protocol StartUpsListRouter : ViewRouter {
+protocol StartupsListRouter : ViewRouter {
     func presentDetailsView(forStartup: StartupDetails)
 }
 
-class StartUpsListRouterImplementation: StartUpsListRouter {
+class StartupsListRouterImplementation: StartupsListRouter {
     
     fileprivate let showStartupDetailsSegue = "showStartupDetails"
-    fileprivate weak var startUpsListViewController : StartUpsListViewController?
+    fileprivate weak var startupsListViewController : StartupsListViewController?
     fileprivate var startup: StartupDetails!
     
-    init(startUpsListViewController: StartUpsListViewController) {
-        self.startUpsListViewController = startUpsListViewController
+    init(startupsListViewController: StartupsListViewController) {
+        self.startupsListViewController = startupsListViewController
     }
     
     func presentDetailsView(forStartup startup: StartupDetails) {
         self.startup = startup
-        self.startUpsListViewController?.performSegue(withIdentifier: showStartupDetailsSegue, sender: nil)
+        self.startupsListViewController?.performSegue(withIdentifier: showStartupDetailsSegue, sender: nil)
     }
     
     func prepare(for segue: UIStoryboardSegue, sender: Any?) {

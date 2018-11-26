@@ -1,6 +1,6 @@
 //
 //  RankingRouter.swift
-//  StartUpRating
+//  StartupRating
 //
 //  Created by Edgar Hirama on 25/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.

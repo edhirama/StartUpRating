@@ -30,8 +30,8 @@
                                     <constraint firstAttribute="width" secondItem="jHe-fr-f98" secondAttribute="height" multiplier="108:109" id="mZE-zW-MAN"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da StartUp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSF-7V-3Tn">
-                                <rect key="frame" x="50" y="158" width="133" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da Startup" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSF-7V-3Tn">
+                                <rect key="frame" x="50.5" y="158" width="132" height="21"/>
                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

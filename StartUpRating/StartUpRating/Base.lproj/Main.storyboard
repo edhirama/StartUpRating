@@ -93,16 +93,16 @@
             </objects>
             <point key="canvasLocation" x="-777" y="147"/>
         </scene>
-        <!--Start Ups List View Controller-->
+        <!--Startup Fest-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="StartUpsListViewController" customModule="StartUpRating" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartupsListViewController" customModule="StartUpRating" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g5d-aZ-gzz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -115,7 +115,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ERn-om-Z71"/>
+                    <navigationItem key="navigationItem" title="Startup Fest" prompt="Escolha a sua Startup!" id="ERn-om-Z71"/>
                     <connections>
                         <outlet property="tableView" destination="g5d-aZ-gzz" id="Tu9-k0-QxX"/>
                         <segue destination="Jui-PH-mu7" kind="show" identifier="showStartupDetails" id="nOS-YM-foh"/>
@@ -147,8 +147,8 @@
                                                     <constraint firstAttribute="width" secondItem="ucS-hP-EcN" secondAttribute="height" multiplier="108:109" id="zbM-Of-Sre"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Nome da StartUp" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2f-Ks-8lX">
-                                                <rect key="frame" x="50" y="158" width="133" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Nome da Startup" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2f-Ks-8lX">
+                                                <rect key="frame" x="50.5" y="158" width="132" height="21"/>
                                                 <fontDescription key="fontDescription" name="Thonburi" family="Thonburi" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

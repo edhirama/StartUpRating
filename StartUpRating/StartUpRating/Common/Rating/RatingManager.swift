@@ -1,6 +1,6 @@
 //
 //  RatingManager.swift
-//  StartUpRating
+//  StartupRating
 //
 //  Created by Edgar Hirama on 23/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -21,26 +21,26 @@ class RatingManager {
     
     //MARK: Read
     
-    static func getTopPitchRatings(completion: @escaping (_ startups: [StartUpModel]) -> ()) {
+    static func getTopPitchRatings(completion: @escaping (_ startups: [StartupModel]) -> ()) {
     
         getRatings(ratingType: .pitchRating) { (startups) in
             completion(startups)
         }
     }
     
-    static func getTopProposalRatings(completion: @escaping (_ startups: [StartUpModel]) -> ()) {
+    static func getTopProposalRatings(completion: @escaping (_ startups: [StartupModel]) -> ()) {
         getRatings(ratingType: .proposalRating) { (startups) in
             completion(startups)
         }
     }
     
-    static func getTopDevelopmentRatings(completion: @escaping (_ startups: [StartUpModel]) -> ()) {
+    static func getTopDevelopmentRatings(completion: @escaping (_ startups: [StartupModel]) -> ()) {
         getRatings(ratingType: .developmentRating) { (startups) in
             completion(startups)
         }
     }
     
-    static func getRatings(ratingType: RatingType, completion: @escaping (_ startups: [StartUpModel]) -> ()) {
+    static func getRatings(ratingType: RatingType, completion: @escaping (_ startups: [StartupModel]) -> ()) {
         let query = Firestore.firestore().collection(FirestorePaths.root).limit(to: 3).order(by: ratingType.rawValue, descending: true)
         query.addSnapshotListener({ (snapshot, error) in
             guard let snapshot = snapshot else {
@@ -48,8 +48,8 @@ class RatingManager {
                 return
             }
             
-            let topStartups = snapshot.documents.map({ (document) -> StartUpModel in
-                if let startup = StartUpModel(dictionary: document.data()) {
+            let topStartups = snapshot.documents.map({ (document) -> StartupModel in
+                if let startup = StartupModel(dictionary: document.data()) {
                     return startup
                 } else {
                     fatalError("Unable to initialize RatingModel")
@@ -118,8 +118,8 @@ class RatingManager {
                 return nil
             }
             
-            let startupModel: StartUpModel
-            if let data = startupSnapshot.data(), let startupModelInit = StartUpModel(dictionary: data) {
+            let startupModel: StartupModel
+            if let data = startupSnapshot.data(), let startupModelInit = StartupModel(dictionary: data) {
                 startupModel = startupModelInit
             } else {
                 print("error retrieving startup data")

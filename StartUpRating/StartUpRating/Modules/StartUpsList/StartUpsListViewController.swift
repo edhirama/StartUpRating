@@ -1,6 +1,6 @@
 //
-//  StartUpsListViewController.swift
-//  StartUpRating
+//  StartupsListViewController.swift
+//  StartupRating
 //
 //  Created by Edgar Hirama on 21/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -8,20 +8,20 @@
 
 import UIKit
 
-class StartUpsListViewController: UIViewController, StartUpListView {
+class StartupsListViewController: UIViewController, StartupListView {
  
 
     @IBOutlet weak var tableView: UITableView!
     var startups: [StartupDetails]?
     
-    var configurator = StartUpsListConfiguratorImplementation()
-    var presenter: StartUpListPresenter!
+    var configurator = StartupsListConfiguratorImplementation()
+    var presenter: StartupListPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpTableView()
-        configurator.configure(startUpsListViewController: self)
+        configurator.configure(startupsListViewController: self)
         presenter.viewDidLoad()
     }
     
@@ -39,20 +39,20 @@ class StartUpsListViewController: UIViewController, StartUpListView {
         self.presenter.router.prepare(for: segue, sender: sender)
     }
     
-    //MARK:- StartUpListView
-    func refreshStartUpListView() {
+    //MARK:- StartupListView
+    func refreshStartupListView() {
         tableView.reloadData()
     }
     
-    func displayStartUpsRetrievalError(title: String, message: String) {
+    func displayStartupsRetrievalError(title: String, message: String) {
         //TODO
         
-        print("displayStartUpsRetrievalError")
+        print("displayStartupsRetrievalError")
     }
     
 }
 
-extension StartUpsListViewController: UITableViewDataSource, UITableViewDelegate {
+extension StartupsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfStartups

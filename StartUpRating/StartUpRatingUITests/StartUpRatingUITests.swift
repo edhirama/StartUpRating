@@ -1,6 +1,6 @@
 //
-//  StartUpRatingUITests.swift
-//  StartUpRatingUITests
+//  StartupRatingUITests.swift
+//  StartupRatingUITests
 //
 //  Created by Edgar Hirama on 19/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class StartUpRatingUITests: XCTestCase {
+class StartupRatingUITests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,15 +1,15 @@
 //
-//  StartUpRatingTests.swift
-//  StartUpRatingTests
+//  StartupRatingTests.swift
+//  StartupRatingTests
 //
 //  Created by Edgar Hirama on 19/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
 //
 
 import XCTest
-@testable import StartUpRating
+@testable import StartupRating
 
-class StartUpRatingTests: XCTestCase {
+class StartupRatingTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

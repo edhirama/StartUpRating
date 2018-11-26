@@ -1,6 +1,6 @@
 //
-//  StartUpsListPresenter.swift
-//  StartUpRating
+//  StartupsListPresenter.swift
+//  StartupRating
 //
 //  Created by Edgar Hirama on 21/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -9,9 +9,9 @@
 import Foundation
 import Apollo
 
-protocol StartUpListView : class {
-    func refreshStartUpListView()
-    func displayStartUpsRetrievalError(title: String, message: String)
+protocol StartupListView : class {
+    func refreshStartupListView()
+    func displayStartupsRetrievalError(title: String, message: String)
 }
 
 protocol StartupListCellView {
@@ -20,17 +20,17 @@ protocol StartupListCellView {
     func displayImage(image: UIImage)
 }
 
-protocol StartUpListPresenter {
-    var router: StartUpsListRouter { get }
+protocol StartupListPresenter {
+    var router: StartupsListRouter { get }
     var numberOfStartups: Int { get }
     func viewDidLoad()
     func configure(cell: StartupListCellView, forRow row: Int)
     func didSelect(row: Int)
 }
 
-class StartUpListPresenterImplementation: StartUpListPresenter {
+class StartupListPresenterImplementation: StartupListPresenter {
     
-    fileprivate weak var view: StartUpListView?
+    fileprivate weak var view: StartupListView?
     var numberOfStartups: Int {
         return startups?.count ?? 0
     }
@@ -60,7 +60,6 @@ class StartUpListPresenterImplementation: StartUpListPresenter {
         } else {
             
         }
-        
     }
     
     
@@ -70,18 +69,17 @@ class StartUpListPresenterImplementation: StartUpListPresenter {
         }
     }
     
-    
     var startups : [StartupDetails?]?
-    weak private var startupView: StartUpListView?
-    internal let router: StartUpsListRouter
+    weak private var startupView: StartupListView?
+    internal let router: StartupsListRouter
     
-    init(view: StartUpListView, router: StartUpsListRouter) {
+    init(view: StartupListView, router: StartupsListRouter) {
         self.view = view
         self.router = router
     }
     
     func setView() {
-        self.view?.refreshStartUpListView()
+        self.view?.refreshStartupListView()
     }
     
     func setErrorView() {

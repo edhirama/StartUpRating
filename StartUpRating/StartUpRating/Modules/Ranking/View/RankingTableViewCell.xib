@@ -19,21 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="115.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ju-ro-RLN">
-                        <rect key="frame" x="16" y="46.5" width="15" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ju-ro-RLN">
+                        <rect key="frame" x="16" y="47.5" width="15" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V2d-tg-bub">
-                        <rect key="frame" x="39" y="31" width="53.5" height="54.5"/>
+                        <rect key="frame" x="39" y="28" width="58" height="59"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="V2d-tg-bub" secondAttribute="height" multiplier="63:64" id="dgK-4W-MSJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da startup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNo-IC-xwm">
-                        <rect key="frame" x="108.5" y="23" width="129" height="21"/>
+                        <rect key="frame" x="113" y="23" width="129" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="I5V-Mv-7Le"/>
                         </constraints>
@@ -42,7 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Segmento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMF-Zx-s4z">
-                        <rect key="frame" x="108.5" y="46" width="62" height="16"/>
+                        <rect key="frame" x="113" y="46" width="62" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="UVS-PA-59B"/>
                         </constraints>
@@ -51,7 +51,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s23-SF-apq" customClass="CosmosView" customModule="Cosmos">
-                        <rect key="frame" x="108.5" y="65" width="108" height="20.5"/>
+                        <rect key="frame" x="113" y="65" width="118" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="s23-SF-apq" secondAttribute="height" multiplier="37:7" id="Hkp-yC-2oZ"/>
                         </constraints>
@@ -71,8 +71,8 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 / 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-hV-vIr">
-                        <rect key="frame" x="249" y="65" width="35" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="5 / 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-hV-vIr">
+                        <rect key="frame" x="249" y="66" width="35" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -94,7 +94,6 @@
                     <constraint firstItem="3zk-hV-vIr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="s23-SF-apq" secondAttribute="trailing" constant="18" id="sgi-ob-4fC"/>
                     <constraint firstItem="dNo-IC-xwm" firstAttribute="leading" secondItem="V2d-tg-bub" secondAttribute="trailing" constant="16" id="wTg-dp-MdC"/>
                     <constraint firstItem="s23-SF-apq" firstAttribute="bottom" secondItem="V2d-tg-bub" secondAttribute="bottom" id="wYj-BH-dFu"/>
-                    <constraint firstItem="3zk-hV-vIr" firstAttribute="height" secondItem="s23-SF-apq" secondAttribute="height" id="wta-Ff-vUb"/>
                     <constraint firstItem="4ju-ro-RLN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zp2-MG-RiL"/>
                 </constraints>
             </tableViewCellContentView>

@@ -1,6 +1,6 @@
 //
-//  StartUpsListConfigurator.swift
-//  StartUpRating
+//  StartupsListConfigurator.swift
+//  StartupRating
 //
 //  Created by Edgar Hirama on 22/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol StartUpsListConfigurator {
-    func configure(startUpsListViewController: StartUpsListViewController)
+protocol StartupsListConfigurator {
+    func configure(startupsListViewController: StartupsListViewController)
 }
 
-class StartUpsListConfiguratorImplementation: StartUpsListConfigurator {
+class StartupsListConfiguratorImplementation: StartupsListConfigurator {
     
-    func configure(startUpsListViewController: StartUpsListViewController) {
-        let router = StartUpsListRouterImplementation(startUpsListViewController: startUpsListViewController)
-        let presenter = StartUpListPresenterImplementation(view: startUpsListViewController, router: router)
-        startUpsListViewController.presenter = presenter
+    func configure(startupsListViewController: StartupsListViewController) {
+        let router = StartupsListRouterImplementation(startupsListViewController: startupsListViewController)
+        let presenter = StartupListPresenterImplementation(view: startupsListViewController, router: router)
+        startupsListViewController.presenter = presenter
     }
     
 }

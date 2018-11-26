@@ -1,6 +1,6 @@
 //
-//  StartUpModel.swift
-//  StartUpRating
+//  StartupModel.swift
+//  StartupRating
 //
 //  Created by Edgar Hirama on 21/11/18.
 //  Copyright © 2018 Edgar. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StartUpModel {
+struct StartupModel {
     
     let name: String
     let segment: String
@@ -33,7 +33,7 @@ struct StartUpModel {
     }
 }
 
-extension StartUpModel {
+extension StartupModel {
     init?(dictionary: [String : Any]) {
         guard  let name = dictionary["name"] as? String,
                let segment = dictionary["segment"] as? String,
