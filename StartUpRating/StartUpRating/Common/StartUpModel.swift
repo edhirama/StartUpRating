@@ -10,9 +10,9 @@ import Foundation
 
 struct StartUpModel {
     
+    let id: String
     let name: String
     let description: String
     let imageURL: String
-    
     
 }

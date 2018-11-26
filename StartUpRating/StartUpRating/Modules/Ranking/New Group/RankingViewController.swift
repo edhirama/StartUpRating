@@ -59,7 +59,7 @@ extension RankingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(indexPath) as RankingTableViewCell
-        self.presenter.configure(cell: cell, forRow: indexPath.row)
+        self.presenter.configure(cell: cell, section: indexPath.section, forRow: indexPath.row)
         return cell
     }
     

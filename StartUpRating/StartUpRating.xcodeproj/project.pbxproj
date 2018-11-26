@@ -250,7 +250,6 @@
 				6EBC912C21A5F62E00B9853D /* StartUpsListViewController.graphql */,
 				6EBC912821A5F4F100B9853D /* StartUpsListViewController.swift */,
 				6EBC912F21A6089C00B9853D /* StartUpsListPresenter.swift */,
-				6EBC913121A6411600B9853D /* StartUpModel.swift */,
 				6EBC914421A6F59C00B9853D /* StartUpsListConfigurator.swift */,
 				6EBC915021A7471C00B9853D /* StartUpsListRouter.swift */,
 			);
@@ -290,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				6EF9278221A79E6D006211CB /* Rating */,
+				6EBC913121A6411600B9853D /* StartUpModel.swift */,
 				6EBC913421A641BE00B9853D /* URLConstants.swift */,
 				6EF9278F21AA5C0B006211CB /* FirestorePaths.swift */,
 			);

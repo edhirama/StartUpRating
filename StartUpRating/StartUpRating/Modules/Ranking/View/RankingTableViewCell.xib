@@ -20,35 +20,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ju-ro-RLN">
-                        <rect key="frame" x="16" y="47.5" width="15" height="21"/>
+                        <rect key="frame" x="16" y="46.5" width="15" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V2d-tg-bub">
-                        <rect key="frame" x="39" y="28.5" width="57.5" height="58.5"/>
+                        <rect key="frame" x="39" y="31" width="53.5" height="54.5"/>
+                        <color key="backgroundColor" red="1" green="0.2565646701" blue="0.10847981769999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="V2d-tg-bub" secondAttribute="height" multiplier="63:64" id="dgK-4W-MSJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome da startup" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNo-IC-xwm">
-                        <rect key="frame" x="112.5" y="23" width="129" height="21"/>
+                        <rect key="frame" x="108.5" y="23" width="129" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="I5V-Mv-7Le"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Segmento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMF-Zx-s4z">
-                        <rect key="frame" x="112.5" y="46" width="62" height="16"/>
+                        <rect key="frame" x="108.5" y="46" width="62" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="UVS-PA-59B"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s23-SF-apq">
-                        <rect key="frame" x="112.5" y="66" width="117" height="21"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="108.5" y="65" width="108" height="20.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="s23-SF-apq" secondAttribute="height" multiplier="37:7" id="Hkp-yC-2oZ"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 / 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zk-hV-vIr">
-                        <rect key="frame" x="249" y="66" width="35" height="21"/>
+                        <rect key="frame" x="249" y="65" width="35" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -57,6 +67,7 @@
                 <constraints>
                     <constraint firstItem="BMF-Zx-s4z" firstAttribute="leading" secondItem="dNo-IC-xwm" secondAttribute="leading" id="BI0-4n-t1a"/>
                     <constraint firstItem="V2d-tg-bub" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Cid-qg-EID"/>
+                    <constraint firstItem="s23-SF-apq" firstAttribute="top" secondItem="BMF-Zx-s4z" secondAttribute="bottom" constant="3" id="Cuy-d9-MJT"/>
                     <constraint firstItem="3zk-hV-vIr" firstAttribute="centerY" secondItem="s23-SF-apq" secondAttribute="centerY" id="D1f-cv-EPD"/>
                     <constraint firstItem="s23-SF-apq" firstAttribute="leading" secondItem="BMF-Zx-s4z" secondAttribute="leading" id="DDz-aX-Cpz"/>
                     <constraint firstItem="BMF-Zx-s4z" firstAttribute="top" secondItem="dNo-IC-xwm" secondAttribute="bottom" constant="2" id="DLc-Zj-6Ku"/>
@@ -81,7 +92,7 @@
                 <outlet property="startupImageView" destination="V2d-tg-bub" id="uoY-7s-7Pc"/>
                 <outlet property="startupNameLabel" destination="dNo-IC-xwm" id="kqE-cJ-DlP"/>
             </connections>
-            <point key="canvasLocation" x="52.799999999999997" y="80.959520239880064"/>
+            <point key="canvasLocation" x="52.799999999999997" y="78.260869565217391"/>
         </tableViewCell>
     </objects>
 </document>

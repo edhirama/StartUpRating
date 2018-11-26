@@ -33,7 +33,7 @@ protocol RankingPresenter {
     var numberOfCriterias: Int { get }
     func numberOfCriteriaRatings(criteriaIndex: Int) -> Int
     func viewDidLoad()
-    func configure(cell: RankingCellView, forRow row: Int)
+    func configure(cell: RankingCellView, section: Int, forRow row: Int)
     func configure(header: CriteriaHeaderView, forSection section: Int)
     func didSelect(row: Int)
 }
@@ -44,6 +44,15 @@ class RankingPresenterImplementation: RankingPresenter {
     var router: RankingRouter
     
     fileprivate weak var view: RankingView?
+    
+    var numberOfCriteriaRatingsLoaded: Int = 0 {
+        didSet {
+            if numberOfCriteriaRatingsLoaded == 3 {
+                self.setView()
+            }
+        }
+    }
+    
     var numberOfCriterias: Int {
         return criterias?.count ?? 0
     }
@@ -56,27 +65,32 @@ class RankingPresenterImplementation: RankingPresenter {
     func viewDidLoad() {
         RatingManager.getCriterias { [weak self] (criterias) in
             self?.criterias = criterias
-            self?.setView()
+            self?.loadCriteriaRatings()
         }
-//        let apolloClient = ApolloClient.init(url: URL(string: URLConstants.apollo)!)
-//        apolloClient.fetch(query: GetAllStartupsQuery()) { [weak self] (result, error) in
-//            guard let startups = result?.data?.allStartups else {
-//                self?.setErrorView()
-//                return
-//            }
-//
-//            self?.startups = startups.map({ (startup) -> StartupDetails? in
-//                return startup?.fragments.startupDetails
-//            })
-//            self?.setView()
-//        }
     }
     
-    func configure(cell: RankingCellView, forRow row: Int) {
-        if let criteria = self.criterias?[row] {
+    func loadCriteriaRatings() {
+        RatingManager.getTopPitchRatings { [weak self] (ratings) in
+            self?.criterias?[0]?.ratings = ratings
+            self?.numberOfCriteriaRatingsLoaded += 1
+        }
+        
+        RatingManager.getTopProposalRatings { [weak self] (ratings) in
+            self?.criterias?[1]?.ratings = ratings
+            self?.numberOfCriteriaRatingsLoaded += 1
+        }
+        
+        RatingManager.getTopDevelopmentRatings { [weak self] (ratings) in
+            self?.criterias?[2]?.ratings = ratings
+            self?.numberOfCriteriaRatingsLoaded += 1
+        }
+    }
+    
+    func configure(cell: RankingCellView, section: Int, forRow row: Int) {
+        if let criteria = self.criterias?[section], criteria.ratings != nil, criteria.ratings!.count > 0 {
             if let rating = criteria.ratings?[row] {
                 
-                cell.displayRank(rank: "\(row)º")
+                cell.displayRank(rank: "\(row+1)º")
                 cell.displayStartupName(name: rating.name)
 //                cell.displa
 //                ImageUtils.load(url: URL(string: startup.imageUrl)!) { (image) in
