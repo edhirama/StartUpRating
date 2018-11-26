@@ -106,7 +106,7 @@ class RankingPresenterImplementation: RankingPresenter {
                     cell.displayStartupName(name: startup.name)
                     cell.displaySegment(segmentName: startup.segment)
                     cell.displayRatingValue(value: rating)
-                    cell.displayRatingString(rating: "\(rating) / 5")
+                    cell.displayRatingString(rating: String(format: "%.2f / 5", rating))
                     ImageUtils.load(url: URL(string: startup.imageURL)!) { (image) in
                         cell.displayStartupImage(image: image)
                     }
@@ -138,12 +138,8 @@ class RankingPresenterImplementation: RankingPresenter {
     
     
     func didSelect(row: Int) {
-//        if let startup = criterias?[row] {
-//            self.router.presentDetailsView(forStartup: startup)
-//        }
+        //TODO
     }
-    
-
     
     init(view: RankingView, router: RankingRouter) {
         self.view = view

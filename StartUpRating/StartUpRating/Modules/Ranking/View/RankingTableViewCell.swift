@@ -21,6 +21,11 @@ class RankingTableViewCell: UITableViewCell, Reusable, NibLoadableView, RankingC
     @IBOutlet weak var ratingView: CosmosView!
     //MARK:- RankingCellView
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        ratingView.settings.fillMode = .precise
+    }
+    
     func displayRank(rank: String) {
         rankLabel.text = rank
     }
