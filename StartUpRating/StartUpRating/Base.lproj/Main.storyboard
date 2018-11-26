@@ -57,18 +57,60 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbB-dm-991" userLabel="Error View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops! Algo errado aconteceu! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnT-3v-kFR">
+                                        <rect key="frame" x="70" y="120" width="235" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-kx-clU">
+                                        <rect key="frame" x="125.5" y="156.5" width="124" height="30"/>
+                                        <state key="normal" title="Tentar novamente"/>
+                                        <connections>
+                                            <action selector="tryAgainClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dJZ-V3-k9F"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="1Np-kx-clU" firstAttribute="centerX" secondItem="EnT-3v-kFR" secondAttribute="centerX" id="6C5-PC-wVe"/>
+                                    <constraint firstItem="EnT-3v-kFR" firstAttribute="top" secondItem="QbB-dm-991" secondAttribute="top" constant="120" id="LX5-lp-lwA"/>
+                                    <constraint firstAttribute="trailing" secondItem="EnT-3v-kFR" secondAttribute="trailing" constant="70" id="XmL-mT-x3b"/>
+                                    <constraint firstItem="1Np-kx-clU" firstAttribute="top" secondItem="EnT-3v-kFR" secondAttribute="bottom" constant="16" id="f4m-jd-AmS"/>
+                                    <constraint firstItem="EnT-3v-kFR" firstAttribute="leading" secondItem="QbB-dm-991" secondAttribute="leading" constant="70" id="tpR-6H-fuW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QbB-dm-991" firstAttribute="width" secondItem="chZ-j1-SHe" secondAttribute="width" id="4iV-Hc-ckC"/>
+                            <constraint firstItem="QbB-dm-991" firstAttribute="height" secondItem="chZ-j1-SHe" secondAttribute="height" id="Krx-FK-eMZ"/>
                             <constraint firstItem="chZ-j1-SHe" firstAttribute="trailing" secondItem="T7S-4Q-OF4" secondAttribute="trailing" id="V1F-yC-tci"/>
                             <constraint firstItem="chZ-j1-SHe" firstAttribute="bottom" secondItem="T7S-4Q-OF4" secondAttribute="bottom" id="fsV-KP-YhI"/>
+                            <constraint firstItem="QbB-dm-991" firstAttribute="centerX" secondItem="chZ-j1-SHe" secondAttribute="centerX" id="oEN-bj-4ar"/>
+                            <constraint firstItem="QbB-dm-991" firstAttribute="centerY" secondItem="chZ-j1-SHe" secondAttribute="centerY" id="ruK-jm-vlQ"/>
                             <constraint firstItem="chZ-j1-SHe" firstAttribute="leading" secondItem="T7S-4Q-OF4" secondAttribute="leading" id="tdc-fE-bcs"/>
                             <constraint firstItem="chZ-j1-SHe" firstAttribute="top" secondItem="T7S-4Q-OF4" secondAttribute="top" id="zus-VD-WBi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7S-4Q-OF4"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Resultados" id="vwf-Lk-DU6"/>
+                    <navigationItem key="navigationItem" title="Resultados" id="vwf-Lk-DU6">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="khy-lu-gHD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eqS-0G-w3l">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Atualizar"/>
+                                <connections>
+                                    <action selector="tryAgainClicked:" destination="Kgx-Ic-rBS" eventType="touchUpInside" id="e7G-Aw-izW"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="errorView" destination="QbB-dm-991" id="ShQ-xF-9Ef"/>
                         <outlet property="tableView" destination="chZ-j1-SHe" id="Gwy-EU-09J"/>
                     </connections>
                 </viewController>
@@ -105,18 +147,49 @@
                                 <rect key="frame" x="0.0" y="98" width="375" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YLY-cM-LrI" userLabel="Error View">
+                                <rect key="frame" x="0.0" y="98" width="375" height="520"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops! Algo errado aconteceu! " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eiw-8p-HEI">
+                                        <rect key="frame" x="70" y="120" width="235" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ptv-Q8-hLh">
+                                        <rect key="frame" x="125.5" y="156.5" width="124" height="30"/>
+                                        <state key="normal" title="Tentar novamente"/>
+                                        <connections>
+                                            <action selector="tryAgainClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7J0-QT-0tR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ptv-Q8-hLh" firstAttribute="top" secondItem="eiw-8p-HEI" secondAttribute="bottom" constant="16" id="FKl-7Y-jMp"/>
+                                    <constraint firstAttribute="trailing" secondItem="eiw-8p-HEI" secondAttribute="trailing" constant="70" id="Npa-RW-nh4"/>
+                                    <constraint firstItem="eiw-8p-HEI" firstAttribute="leading" secondItem="YLY-cM-LrI" secondAttribute="leading" constant="70" id="UNR-W2-8j3"/>
+                                    <constraint firstItem="eiw-8p-HEI" firstAttribute="top" secondItem="YLY-cM-LrI" secondAttribute="top" constant="120" id="YCe-3c-W5j"/>
+                                    <constraint firstItem="Ptv-Q8-hLh" firstAttribute="centerX" secondItem="eiw-8p-HEI" secondAttribute="centerX" id="yv2-Bw-2RK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="YLY-cM-LrI" firstAttribute="width" secondItem="g5d-aZ-gzz" secondAttribute="width" id="1Q4-dS-xiZ"/>
                             <constraint firstItem="g5d-aZ-gzz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4CF-VS-odt"/>
+                            <constraint firstItem="YLY-cM-LrI" firstAttribute="centerX" secondItem="g5d-aZ-gzz" secondAttribute="centerX" id="Qbb-gM-Mxz"/>
+                            <constraint firstItem="YLY-cM-LrI" firstAttribute="centerY" secondItem="g5d-aZ-gzz" secondAttribute="centerY" id="gdi-WT-r4m"/>
                             <constraint firstItem="g5d-aZ-gzz" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lIP-VZ-Nx4"/>
                             <constraint firstItem="g5d-aZ-gzz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wZP-i1-6Tx"/>
                             <constraint firstItem="g5d-aZ-gzz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wcX-WP-xCK"/>
+                            <constraint firstItem="YLY-cM-LrI" firstAttribute="height" secondItem="g5d-aZ-gzz" secondAttribute="height" id="z0L-Xg-8qp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Startup Fest" prompt="Escolha a sua Startup!" id="ERn-om-Z71"/>
                     <connections>
+                        <outlet property="errorView" destination="YLY-cM-LrI" id="kgP-FI-Sou"/>
                         <outlet property="tableView" destination="g5d-aZ-gzz" id="Tu9-k0-QxX"/>
                         <segue destination="Jui-PH-mu7" kind="show" identifier="showStartupDetails" id="nOS-YM-foh"/>
                     </connections>

@@ -11,7 +11,8 @@ import Apollo
 
 protocol StartupListView : class {
     func refreshStartupListView()
-    func displayStartupsRetrievalError(title: String, message: String)
+    func showLoadingView(_ show: Bool)
+    func showErrorView(_ show: Bool)
 }
 
 protocol StartupListCellView {
@@ -24,6 +25,7 @@ protocol StartupListPresenter {
     var router: StartupsListRouter { get }
     var numberOfStartups: Int { get }
     func viewDidLoad()
+    func refresh()
     func configure(cell: StartupListCellView, forRow row: Int)
     func didSelect(row: Int)
 }
@@ -36,17 +38,30 @@ class StartupListPresenterImplementation: StartupListPresenter {
     }
     
     func viewDidLoad() {
+        loadStartups()
+    }
+    
+    func refresh() {
+        loadStartups()
+    }
+    
+    func loadStartups() {
+        self.view?.showLoadingView(true)
         let apolloClient = ApolloClient.init(url: URL(string: URLConstants.apollo)!)
         apolloClient.fetch(query: GetAllStartupsQuery()) { [weak self] (result, error) in
             guard let startups = result?.data?.allStartups else {
-                self?.setErrorView()
+                self?.showErrorView(true)
                 return
             }
             
-            self?.startups = startups.map({ (startup) -> StartupDetails? in
-                return startup?.fragments.startupDetails
-            })
-            self?.setView()
+            if error == nil {
+                self?.startups = startups.map({ (startup) -> StartupDetails? in
+                    return startup?.fragments.startupDetails
+                })
+                self?.setView()
+            } else {
+                self?.showErrorView(true)
+            }
         }
     }
     
@@ -80,9 +95,11 @@ class StartupListPresenterImplementation: StartupListPresenter {
     
     func setView() {
         self.view?.refreshStartupListView()
+        self.view?.showLoadingView(false)
+        self.view?.showErrorView(false)
     }
     
-    func setErrorView() {
-        //TODO
+    func showErrorView(_ show: Bool) {
+        self.view?.showErrorView(show)
     }
 }

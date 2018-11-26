@@ -12,7 +12,8 @@ import FirebaseFirestore
 
 protocol RankingView : class {
     func refreshRankingView()
-    func displayRankingRetrievalError(title: String, message: String)
+    func showLoadingView(_ show: Bool)
+    func showErrorView(_ show: Bool)
 }
 
 protocol RankingCellView {
@@ -34,6 +35,7 @@ protocol RankingPresenter {
     var numberOfCriterias: Int { get }
     func numberOfCriteriaRatings(criteriaIndex: Int) -> Int
     func viewDidLoad()
+    func refresh()
     func configure(cell: RankingCellView, section: Int, forRow row: Int)
     func configure(header: CriteriaHeaderView, forSection section: Int)
     func didSelect(row: Int)
@@ -70,7 +72,14 @@ class RankingPresenterImplementation: RankingPresenter {
         self.loadCriteriaRatings()
     }
     
+    func refresh() {
+        self.numberOfCriteriaRatingsLoaded = 0
+        self.rankings.removeAll()
+        self.loadCriteriaRatings()
+    }
+    
     func loadCriteriaRatings() {
+        self.view?.showLoadingView(true)
         RatingManager.getTopPitchRatings { [weak self] (startups) in
             self?.rankings.append(Ranking(type: .pitchRating, startups: startups))
             self?.numberOfCriteriaRatingsLoaded += 1
@@ -103,7 +112,7 @@ class RankingPresenterImplementation: RankingPresenter {
                     }
                 }
             } else {
-
+                print("not enough rated startups")
             }
         }
         
@@ -143,9 +152,12 @@ class RankingPresenterImplementation: RankingPresenter {
     
     func setView() {
         self.view?.refreshRankingView()
+        self.view?.showLoadingView(false)
+        self.view?.showErrorView(false)
     }
     
     func setErrorView() {
-        //TODO
+        self.view?.showLoadingView(false)
+        self.view?.showErrorView(false)
     }
 }

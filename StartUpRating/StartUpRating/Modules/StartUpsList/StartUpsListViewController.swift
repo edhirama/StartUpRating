@@ -10,7 +10,7 @@ import UIKit
 
 class StartupsListViewController: UIViewController, StartupListView {
  
-
+    @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var tableView: UITableView!
     var startups: [StartupDetails]?
     
@@ -23,6 +23,14 @@ class StartupsListViewController: UIViewController, StartupListView {
         setUpTableView()
         configurator.configure(startupsListViewController: self)
         presenter.viewDidLoad()
+    }
+    
+    func showLoadingView(_ show: Bool) {
+        if show {
+            LoadingIndicator.shared.show()
+        } else {
+            LoadingIndicator.shared.hide()
+        }
     }
     
     func setUpTableView() {
@@ -42,12 +50,16 @@ class StartupsListViewController: UIViewController, StartupListView {
     //MARK:- StartupListView
     func refreshStartupListView() {
         tableView.reloadData()
+        self.errorView.isHidden = true
     }
     
-    func displayStartupsRetrievalError(title: String, message: String) {
-        //TODO
-        
-        print("displayStartupsRetrievalError")
+    func showErrorView(_ show: Bool) {
+        self.errorView.isHidden = !show
+    }
+    
+    //MARK: Actions
+    @IBAction func tryAgainClicked(_ sender: AnyObject) {
+        self.presenter.refresh()
     }
     
 }

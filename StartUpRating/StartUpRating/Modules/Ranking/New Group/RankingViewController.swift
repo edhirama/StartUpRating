@@ -11,6 +11,7 @@ import UIKit
 class RankingViewController: UIViewController, RankingView {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var errorView: UIView!
     
     var rankingConfigurator = RankingConfiguratorImplementation()
     
@@ -23,6 +24,14 @@ class RankingViewController: UIViewController, RankingView {
         
     }
 
+    func showLoadingView(_ show: Bool) {
+        if show {
+            LoadingIndicator.shared.show()
+        } else {
+            LoadingIndicator.shared.hide()
+        }
+    }
+    
     func setupTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -36,10 +45,15 @@ class RankingViewController: UIViewController, RankingView {
     
     func refreshRankingView() {
         self.tableView.reloadData()
+        self.errorView.isHidden = true
     }
     
-    func displayRankingRetrievalError(title: String, message: String) {
-        //TODO
+    func showErrorView(_ show: Bool) {
+        self.errorView.isHidden = !show
+    }
+    
+    @IBAction func tryAgainClicked(_ sender: Any) {
+        self.presenter.refresh()
     }
 }
 
