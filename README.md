@@ -6,6 +6,24 @@ This is a test repository to experiment with new architecture, development pract
 
 The chosen architecture is and adapted MVP, which has the goal to make the view dumb as it can be, so the presenter has the business logic and it is more testable than a complex view would be.
 
+## Dependecy manager
+
+### CocoaPods
+
+This project uses CocoaPods to manage dependencies such as the ones described below. So in order to run the project, first you need to run
+
+```pod install```
+
+and open the .xcworkspace
+
+### Node.js
+
+This project also depends on node_modules that were ignored in order to avoid enlarging the project size. So if you don't have the apollo-codegen package, if you might need to run
+
+```npm install -g apollo-codegen```
+
+in order to compile the project.
+
 ## Third-party
 
 ### GraphQL
